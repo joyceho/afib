@@ -1,0 +1,1 @@
+To run GUI, type the following in a terminal: `bokeh serve --show gui.py`.
