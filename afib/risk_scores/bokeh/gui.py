@@ -127,17 +127,17 @@ npoaf_widgets = column(npoaf_mvd,npoaf_lad)
 
 curdoc().add_root(layout(children=[
     [column(age)],
-    [Spacer()],
+    [Spacer(height=100)],
     [column(care_opt), care_div],
-    [Spacer()],
+    [Spacer(height=100)],
     [afri_widgets, afri_div],
-    [Spacer()],
+    [Spacer(height=100)],
     [chad_widgets, chad_div],
-    [Spacer()],
+    [Spacer(height=100)],
     [poaf_widgets, poaf_div],
-    [Spacer()],
+    [Spacer(height=100)],
     [npoaf_widgets, npoaf_div]
-], sizing_mode="stretch_height"))
+], sizing_mode="fixed"))
 
 """
 curdoc().add_root(column(care_opt,div,afri_age,afri_wt,afri_ht,afri_isPVD,afri_sex, div1))
