@@ -138,10 +138,3 @@ curdoc().add_root(layout(children=[
     [Spacer(height=100)],
     [npoaf_widgets, npoaf_div]
 ], sizing_mode="fixed"))
-
-"""
-curdoc().add_root(column(care_opt,div,afri_age,afri_wt,afri_ht,afri_isPVD,afri_sex, div1))
-curdoc().add_root(column(chad_chf,chad_htn,chad_age,chad_dm,chad_stroke,chad_vd,chad_sex,div2))
-curdoc().add_root(column(poaf_age,poaf_copd,poaf_egfr,poaf_emrgncy,poaf_pibp,poaf_lvef,poaf_vs,div3))
-curdoc().add_root(column(npoaf_age,npoaf_mvd,npoaf_lad,div4))
-"""
