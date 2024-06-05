@@ -14,7 +14,7 @@ from afib import BaseRisk
 
 AFRI_PTS = [1,1,1,1]
 
-def afriMale(age, wt, height, pvd):
+def afri_male(age, wt, height, pvd):
     """Calculates AFRI score for males.
 
     Args:
@@ -34,7 +34,7 @@ def afriMale(age, wt, height, pvd):
                     pvd], dtype=int)
     return arr.dot(AFRI_PTS)
 
-def afriFem(age, wt, height, pvd):
+def afri_female(age, wt, height, pvd):
     """Calculates AFRI score for females.
 
     Args:
@@ -54,20 +54,23 @@ def afriFem(age, wt, height, pvd):
                     pvd], dtype=int)
     return arr.dot(AFRI_PTS)
 
-class AfriMaleC(BaseRisk):
-    #array = ["age","wt","height","pvd"]
 
+def afri(female, age, wt, height, pvd):
+    if female:
+        return afri_female(age, wt, height, pvd)
+    else:
+        return afri_male(age, wt, height, pvd)
+
+    
+class Afri(BaseRisk):
+    features = ["female", "index_age", "weight_kg", 
+                "height_m", "pvd"]
+    feat_key = features
+    
     def score(self, row):
-        return afriMale(row["age"],
-                    row["wt"],
-                    row["height"],
-                    row["pvd"])
+        return afri(row["female"],
+                    row["index_age"],
+                    row["weight_kg"],
+                    row["height_m"]*100,
+                    row["pvd"])/4
 
-class AfriFemC(BaseRisk):
-    #array = ["age","wt","height","pvd"]
-
-    def score(self, row):
-        return afriFem(row["age"],
-                    row["wt"],
-                    row["height"],
-                    row["pvd"])
